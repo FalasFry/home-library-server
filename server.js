@@ -5,6 +5,8 @@ const http = require('http');
 const https = require('https');
 const express = require('express');
 const path = require('path');
+const session = require("express-session");
+const auth = require("./auth");
 
 // Routes
 const authRoutes = require('./routes/auth');
@@ -13,11 +15,25 @@ const openLibraryRoutes = require('./routes/openlibrary');
 
 const app = express();
 app.use(express.json());
+app.use(session({
+  secret: "supersecret", 
+  resave: false, 
+  saveUninitialized: false
+}));
 
-// API routes
-app.use('/auth', authRoutes);
-app.use('/books', bookRoutes);
-app.use('/openlibrary', openLibraryRoutes);
+// --- AUTH ROUTES ---
+app.post("/api/register", auth.register);
+app.post("/api/login", auth.login);
+app.post("/api/logout", auth.logout);
+
+// --- PROTECTED ROUTES ---
+app.get("/api/books", auth.requireLogin, (req, res) => {
+  // return books for req.session.user
+});
+
+app.post("/api/books", auth.requireLogin, (req, res) => {
+  // save book for req.session.user
+});
 
 // Serve static PWA files
 // Serve static files

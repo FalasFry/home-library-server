@@ -3,43 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Library PWA</title>
-  <link rel="manifest" href="manifest.json">
+  <title>Home Library</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Home Library PWA</h1>
+  <header>
+    <h1>📚 My Home Library</h1>
+  </header>
 
-  <div id="auth">
-    <h2>Register / Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="registerBtn">Register</button>
-    <button id="loginBtn">Login</button>
-    <div id="authMessage"></div>
+  <div class="container">
+    <!-- AUTH SECTION -->
+    <div id="auth-section">
+      <h2>Login / Register</h2>
+      <input id="username" placeholder="Username" />
+      <input id="password" type="password" placeholder="Password" />
+      <button id="login-btn">🔑 Login</button>
+      <button id="register-btn">📝 Register</button>
+      <p id="auth-status"></p>
+    </div>
+
+    <!-- LIBRARY SECTION (hidden until login) -->
+    <div id="library-section" style="display:none;">
+      <button id="logout-btn">🚪 Logout</button>
+      <button id="scan-btn">📷 Scan Book</button>
+      <div id="scanner" style="display:none;"></div>
+      <p id="result">No scan yet</p>
+
+      <h2>Saved Books</h2>
+      <ul class="book-list" id="book-list"></ul>
+    </div>
   </div>
-  <hr>
-  <h2>Scan ISBN</h2>
-  <div id="scanner" style="
-    width: 100%;
-    max-width: 400px;
-    height: 250px;
-    margin: auto;
-    border: 2px solid #333;
-    position: relative;
-    overflow: hidden;
-  "></div>
-  <button id="startScan">Start Scan</button>
-  <div id="result"></div>
-  <button id="saveBook" style="display:none;">Save Book</button>
-  <div id="saveMessage"></div>
 
-  <hr>
-  <h2>My Library</h2>
-  <button id="refreshLibrary">Refresh Library</button>
-  <ul id="bookList"></ul>
-
-  <script src="https://unpkg.com/@ericblade/quagga2/dist/quagga.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
