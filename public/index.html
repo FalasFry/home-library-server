@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Library PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Home Library PWA</h1>
+
+  <div id="auth">
+    <h2>Register / Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="registerBtn">Register</button>
+    <button id="loginBtn">Login</button>
+    <div id="authMessage"></div>
+  </div>
+  <hr>
+  <h2>Scan ISBN</h2>
+  <div id="scanner" style="
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    margin: auto;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+  "></div>
+  <button id="startScan">Start Scan</button>
+  <div id="result"></div>
+  <button id="saveBook" style="display:none;">Save Book</button>
+  <div id="saveMessage"></div>
+
+  <hr>
+  <h2>My Library</h2>
+  <button id="refreshLibrary">Refresh Library</button>
+  <ul id="bookList"></ul>
+
+  <script src="https://unpkg.com/@ericblade/quagga2/dist/quagga.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

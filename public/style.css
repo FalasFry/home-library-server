@@ -1,0 +1,5 @@
+body { font-family: sans-serif; padding: 1rem; }
+input { margin: 0.25rem; }
+button { margin: 0.25rem; }
+#scanner { border: 1px solid #333; }
+ul { list-style: none; padding-left: 0; }
