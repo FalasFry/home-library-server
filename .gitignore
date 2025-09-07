@@ -1,2 +1,11 @@
+# Node modules
+node_modules/
+
+# Environment variables
 .env
-.certs/
+
+# SSL certificates
+certs/
+
+# Optional: logs, temp files
+*.log
